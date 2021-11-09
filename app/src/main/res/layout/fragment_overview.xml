@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#673AB7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_currentDateOverwiew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="false"
+                android:layout_centerVertical="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kcals"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/kCalProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:foreground="@android:drawable/editbox_background"
+                        android:foregroundGravity="center|fill_vertical"
+                        android:foregroundTint="#809C27B0"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/gradient_progress" />
+
+                    <TextView
+                        android:id="@+id/KCalCurrentText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/proteins"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/proteinsProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:foreground="@android:drawable/editbox_background"
+                        android:foregroundGravity="center|fill_vertical"
+                        android:foregroundTint="#809C27B0"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/gradient_progress" />
+
+                    <TextView
+                        android:id="@+id/proteinsCurrentText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/carbs"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/CarbsProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:foreground="@android:drawable/editbox_background"
+                        android:foregroundGravity="center|fill_vertical"
+                        android:foregroundTint="#809C27B0"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/gradient_progress" />
+
+                    <TextView
+                        android:id="@+id/carbsCurrentText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/sugars"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/sugarsProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:foreground="@android:drawable/editbox_background"
+                        android:foregroundGravity="center|fill_vertical"
+                        android:foregroundTint="#809C27B0"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/gradient_progress" />
+
+                    <TextView
+                        android:id="@+id/sugarsCurrentText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/fats"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/fatsProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:foreground="@android:drawable/editbox_background"
+                        android:foregroundGravity="center|fill_vertical"
+                        android:foregroundTint="#809C27B0"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/gradient_progress" />
+
+                    <TextView
+                        android:id="@+id/fatsCurrentText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/fibers"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/fibersProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:foreground="@android:drawable/editbox_background"
+                        android:foregroundGravity="center|fill_vertical"
+                        android:foregroundTint="#809C27B0"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/gradient_progress" />
+
+                    <TextView
+                        android:id="@+id/fibersCurrentText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kcal_current_goal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/editCals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:importantForAutofill="no"
+                        android:inputType="number|numberDecimal"
+                        android:textColor="#FFFFFF" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/proteins_current_goal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/editProteins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number|numberDecimal"
+                        android:textColor="#FFFFFF" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/carbs_current_goal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/editCarbs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number|numberDecimal"
+                        android:textColor="#FFFFFF"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sugars_current_goal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/editSugars"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number|numberDecimal"
+                        android:textColor="#FFFFFF" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fats_current_goal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/editFats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number|numberDecimal"
+                        android:textColor="#FFFFFF" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fibers_current_goal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/editFibers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number|numberDecimal"
+                        android:textColor="#FFFFFF" />
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#E91E63"
+                android:text="@string/save" />
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_intake" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
