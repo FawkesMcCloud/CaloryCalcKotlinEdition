@@ -4,10 +4,9 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +22,7 @@ private val TAG: String = HistoryFragment::class.java.simpleName
 class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     val historyVM: HistoryVM by activityViewModels {
-        HistoryVMFactory((requireActivity().application as DataBaseApp).repository)
+        HistoryVMFactory((requireActivity().application as DataBaseApp).historyRepo)
     }
 
     lateinit var recyclerView: RecyclerView
@@ -34,11 +33,9 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"inflate")
         val view = inflater.inflate(R.layout.fragment_history, container, false)
 
-        Log.d(TAG,"Set up adapter")
-        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewHistory)
+        recyclerView = view.findViewById(R.id.recyclerViewHistory)
         val adapter = HistoryListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view.context)
@@ -49,10 +46,11 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         recyclerView.setHasFixedSize(true)
 
 
-        return view;
+        return view
     }
 
-    override fun onViewCreated(view: android.view.View, savedInstanceState: android.os.Bundle?) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val button : Button = view.findViewById(R.id.clearHistoryButton)

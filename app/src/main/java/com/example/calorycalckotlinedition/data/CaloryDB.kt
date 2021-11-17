@@ -9,19 +9,20 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import java.util.*
 
-@Database(entities = [History::class,Product::class], version = 1, exportSchema = false)
+@Database(entities = [History::class,Product::class], version = 2, exportSchema = false)
 @TypeConverters(DateToLongConverter::class)
 abstract class CaloryDB : RoomDatabase() {
 
     abstract fun HistoryDao(): HistoryDao
+    abstract fun ProductDao(): ProductDao
 
     private class WordDatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback(){
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             INSTANCE?.let { _ -> scope.launch {
                     Log.d("RoomCallback","Callback init")
+
                 }
             }
         }

@@ -384,16 +384,10 @@
             </TableLayout>
 
             <Button
-                android:id="@+id/saveButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#E91E63"
-                android:text="@string/save" />
-
-            <Button
                 android:id="@+id/addButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#E91E63"
                 android:text="@string/add_intake" />
 
         </LinearLayout>

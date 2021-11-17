@@ -15,12 +15,11 @@ class HistoryVM(private val repo: HistoryRepo) : ViewModel() {
 
 
     fun setDateFilter(date: Date) = viewModelScope.launch{ recordByDate.value = repo.getByDate(date) }
-    private suspend fun getRecordByDate(date: Date): History? {
+    private suspend fun getRecordByDate(date: Date): History {
         return withContext(Dispatchers.IO){
             repo.getByDate(date)
         }
     }
-
 
     fun insert(record: History) = viewModelScope.launch {
         repo.insert(record)
@@ -34,7 +33,7 @@ class HistoryVM(private val repo: HistoryRepo) : ViewModel() {
         repo.delete(history)
     }
 
-    fun update(record: History) = viewModelScope.launch {
+    fun update(record: History) = viewModelScope.launch(Dispatchers.IO) {
         repo.update(record)
     }
 
