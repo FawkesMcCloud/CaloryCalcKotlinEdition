@@ -13,7 +13,7 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/et_prod_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -28,7 +28,7 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/et_prod_brand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,11 +43,12 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/et_product_kcals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -58,11 +59,12 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/et_prod_carbs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -73,11 +75,12 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/et_prod_proteins"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -88,11 +91,12 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/et_prod_fats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -103,11 +107,12 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextNumber5"
+        android:id="@+id/et_prod_sugars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -118,21 +123,18 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextNumber6"
+        android:id="@+id/et_prod_fibers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         android:textColor="#FFFFFF" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/addProductToDBButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#E91E63"
-        android:text="@string/save" />
+        android:text="@string/add_product" />
 </LinearLayout>

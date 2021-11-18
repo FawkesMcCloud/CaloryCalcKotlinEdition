@@ -24,4 +24,9 @@ class ProductRepo(private val productDao: ProductDao) {
     suspend fun insert(product: Product){
         productDao.insert(product)
     }
+
+    @WorkerThread
+    suspend fun delete(product: Product){
+        productDao.delete(product)
+    }
 }

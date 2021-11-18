@@ -9,14 +9,29 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calorycalckotlinedition.R
 
-class ProductListAdapter: ListAdapter<Product, ProductViewHolder>(ProductComparator()) {
+class ProductListAdapter: RecyclerView.Adapter<ProductViewHolder>() {
+    private var products: List<Product> = ArrayList()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val current = getItem(position)
-        holder.bind(current)
+        val product = products[position]
+        holder.bind(product)
+    }
+
+    override fun getItemCount(): Int {
+        return products.size
+    }
+
+    fun setProducts(products:List<Product>){
+        this.products = products
+        notifyDataSetChanged()
+    }
+
+    fun getNoteAt(pos: Int): Product {
+        return products[pos]
     }
 }
 
@@ -51,4 +66,6 @@ class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             return ProductViewHolder(view)
         }
     }
+
+
 }

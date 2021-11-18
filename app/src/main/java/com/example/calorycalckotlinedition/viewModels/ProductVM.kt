@@ -3,6 +3,7 @@ package com.example.calorycalckotlinedition.viewModels
 import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.*
+import com.example.calorycalckotlinedition.data.Product
 import com.example.calorycalckotlinedition.repository.ProductRepo
 import com.example.calorycalckotlinedition.util.getProductsFromCVS
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +22,14 @@ class ProductVM(private val repo: ProductRepo) : ViewModel() {
             products?.forEach{
                     product -> repo.insert(product)
             }
+        }
+
+        fun insert(product: Product) = viewModelScope.launch(Dispatchers.IO) {
+            repo.insert(product)
+        }
+
+        fun delete(product: Product) = viewModelScope.launch(Dispatchers.IO) {
+            repo.delete(product)
         }
 }
 

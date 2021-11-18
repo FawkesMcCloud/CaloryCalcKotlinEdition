@@ -1,15 +1,15 @@
 package com.example.calorycalckotlinedition.appUI
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -76,9 +76,25 @@ class ProductsFragment : Fragment(R.layout.fragment_products){
         recyclerView.addItemDecoration(itemDecorator)
 
         productVM.products.observe(viewLifecycleOwner) {
-            product -> product?.let { adapter.submitList(it) }
+            product -> product?.let { adapter.setProducts(it) }
         }
         recyclerView.setHasFixedSize(true)
+
+        val itemTouchHelperCallBack = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false;
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                productVM.delete(adapter.getNoteAt(viewHolder.bindingAdapterPosition))
+                Toast.makeText(context,"Product deleted", Toast.LENGTH_SHORT).show()
+            }
+        }
+        ItemTouchHelper(itemTouchHelperCallBack).attachToRecyclerView(recyclerView)
 
         return view
     }
