@@ -25,7 +25,7 @@ class GoalFragment : Fragment(R.layout.fragment_overview) {
 
     private var firstTime: Boolean = true
 
-    //region lateinit vars
+    //region lateInit vars
     private lateinit var addButton: Button
     private lateinit var dateTextView: TextView
 
@@ -59,14 +59,6 @@ class GoalFragment : Fragment(R.layout.fragment_overview) {
     @SuppressLint("SimpleDateFormat")
     private val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
 
-    //region Bundle keys
-    private val KCALGOALKEY = "KCAL_GOAL"
-    private val CARBSGOALKEY = "CARBS_GOAL"
-    private val PROTEINSGOALKEY = "PROTEINS_GOAL"
-    private val FATSGOALKEY = "FATS_GOAL"
-    private val SUGARSGOALKEY = "SUGARS_GOAL"
-    private val FIBERSGOALKEY = "FIBERS_GOAL"
-    //endregion
 
     override fun onCreateView(
         inflater: LayoutInflater,
