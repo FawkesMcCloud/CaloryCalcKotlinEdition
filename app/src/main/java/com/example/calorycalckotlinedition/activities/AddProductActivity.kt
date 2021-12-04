@@ -1,10 +1,6 @@
 package com.example.calorycalckotlinedition.activities
 
-import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.AttributeSet
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,7 +12,6 @@ import com.example.calorycalckotlinedition.R
 import com.example.calorycalckotlinedition.data.Product
 import com.example.calorycalckotlinedition.viewModels.ProductVM
 import com.example.calorycalckotlinedition.viewModels.ProductVMFactory
-import java.lang.Exception
 
 class AddProductActivity : AppCompatActivity(R.layout.adding_product) {
 

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#673AB7">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,8 +34,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/kcals"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#FFFFFF" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -51,7 +49,7 @@
                         android:layout_gravity="center_vertical"
                         android:foreground="@android:drawable/editbox_background"
                         android:foregroundGravity="center|fill_vertical"
-                        android:foregroundTint="#809C27B0"
+                        android:foregroundTint="@color/discord_blue"
                         android:max="100"
                         android:progress="100"
                         android:progressDrawable="@drawable/gradient_progress" />
@@ -62,8 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </LinearLayout>
 
                 <TextView
@@ -71,8 +68,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/proteins"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#FFFFFF" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,7 +83,7 @@
                         android:layout_gravity="center_vertical"
                         android:foreground="@android:drawable/editbox_background"
                         android:foregroundGravity="center|fill_vertical"
-                        android:foregroundTint="#809C27B0"
+                        android:foregroundTint="@color/discord_blue"
                         android:indeterminate="false"
                         android:max="100"
                         android:progress="100"
@@ -99,8 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </LinearLayout>
 
                 <TextView
@@ -108,8 +103,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/carbs"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#FFFFFF" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -124,7 +118,7 @@
                         android:layout_gravity="center_vertical"
                         android:foreground="@android:drawable/editbox_background"
                         android:foregroundGravity="center|fill_vertical"
-                        android:foregroundTint="#809C27B0"
+                        android:foregroundTint="@color/discord_blue"
                         android:max="100"
                         android:progress="100"
                         android:progressDrawable="@drawable/gradient_progress" />
@@ -135,8 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </LinearLayout>
 
                 <TextView
@@ -144,8 +137,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/sugars"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#FFFFFF" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,7 +152,7 @@
                         android:layout_gravity="center_vertical"
                         android:foreground="@android:drawable/editbox_background"
                         android:foregroundGravity="center|fill_vertical"
-                        android:foregroundTint="#809C27B0"
+                        android:foregroundTint="@color/discord_blue"
                         android:max="100"
                         android:progress="100"
                         android:progressDrawable="@drawable/gradient_progress" />
@@ -171,8 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </LinearLayout>
 
                 <TextView
@@ -180,8 +171,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/fats"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#FFFFFF" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -196,7 +186,7 @@
                         android:layout_gravity="center_vertical"
                         android:foreground="@android:drawable/editbox_background"
                         android:foregroundGravity="center|fill_vertical"
-                        android:foregroundTint="#809C27B0"
+                        android:foregroundTint="@color/discord_blue"
                         android:max="100"
                         android:progress="100"
                         android:progressDrawable="@drawable/gradient_progress" />
@@ -207,8 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </LinearLayout>
 
                 <TextView
@@ -216,8 +205,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/fibers"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#FFFFFF" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -232,7 +220,7 @@
                         android:layout_gravity="center_vertical"
                         android:foreground="@android:drawable/editbox_background"
                         android:foregroundGravity="center|fill_vertical"
-                        android:foregroundTint="#809C27B0"
+                        android:foregroundTint="@color/discord_blue"
                         android:max="100"
                         android:progress="100"
                         android:progressDrawable="@drawable/gradient_progress" />
@@ -243,8 +231,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -262,7 +249,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/kcal_current_goal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -271,8 +257,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:importantForAutofill="no"
-                        android:inputType="number|numberDecimal"
-                        android:textColor="#FFFFFF" />
+                        android:inputType="number|numberDecimal" />
                 </TableRow>
 
                 <TableRow
@@ -284,7 +269,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/proteins_current_goal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -292,8 +276,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number|numberDecimal"
-                        android:textColor="#FFFFFF" />
+                        android:inputType="number|numberDecimal" />
                 </TableRow>
 
                 <TableRow
@@ -305,7 +288,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/carbs_current_goal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -314,7 +296,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number|numberDecimal"
-                        android:textColor="#FFFFFF"
                         tools:ignore="SpeakableTextPresentCheck" />
                 </TableRow>
 
@@ -327,7 +308,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/sugars_current_goal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -335,8 +315,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number|numberDecimal"
-                        android:textColor="#FFFFFF" />
+                        android:inputType="number|numberDecimal"/>
                 </TableRow>
 
                 <TableRow
@@ -348,7 +327,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/fats_current_goal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -356,8 +334,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number|numberDecimal"
-                        android:textColor="#FFFFFF" />
+                        android:inputType="number|numberDecimal" />
                 </TableRow>
 
                 <TableRow
@@ -369,7 +346,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/fibers_current_goal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -377,8 +353,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number|numberDecimal"
-                        android:textColor="#FFFFFF" />
+                        android:inputType="number|numberDecimal" />
                 </TableRow>
 
             </TableLayout>
@@ -387,7 +362,6 @@
                 android:id="@+id/addButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#E91E63"
                 android:text="@string/add_intake" />
 
         </LinearLayout>

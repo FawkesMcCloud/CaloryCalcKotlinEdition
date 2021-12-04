@@ -8,4 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bluish">#3F51B5</color>
+
+    <color name="discord_dark1">#1e2124</color>
+    <color name="discord_dark2">#282b30</color>
+    <color name="discord_dark3">#36393e</color>
+    <color name="discord_dark4">#424549</color>
+    <color name="discord_blue">#7289da</color>
 </resources>

@@ -1,16 +1,12 @@
 package com.example.calorycalckotlinedition.activities
 
 import FragmentPagerStateAdapter
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.calorycalckotlinedition.DataBaseApp
 import com.example.calorycalckotlinedition.R
 import com.example.calorycalckotlinedition.databinding.ActivityMainBinding
-import com.example.calorycalckotlinedition.viewModels.HistoryVM
-import com.example.calorycalckotlinedition.viewModels.HistoryVMFactory
 import com.google.android.material.tabs.TabLayout
 
 
@@ -26,10 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if(savedInstanceState != null){
-
-        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

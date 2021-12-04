@@ -1,7 +1,6 @@
 package com.example.calorycalckotlinedition.data
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calorycalckotlinedition.R
-import java.text.SimpleDateFormat
-import java.util.*
 
 class HistoryListAdapter : ListAdapter<History, HistoryViewHolder>(RecordComparator()) {
     @SuppressLint("SimpleDateFormat")

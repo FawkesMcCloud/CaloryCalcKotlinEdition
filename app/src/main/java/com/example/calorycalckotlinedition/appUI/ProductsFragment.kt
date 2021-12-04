@@ -1,5 +1,6 @@
 package com.example.calorycalckotlinedition.appUI
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.calorycalckotlinedition.DataBaseApp
 import com.example.calorycalckotlinedition.R
 import com.example.calorycalckotlinedition.activities.AddProductActivity
@@ -21,17 +21,27 @@ import com.example.calorycalckotlinedition.util.onQueryTextChanged
 import com.example.calorycalckotlinedition.viewModels.ProductVM
 import com.example.calorycalckotlinedition.viewModels.ProductVMFactory
 
-class ProductsFragment : Fragment(R.layout.fragment_products){
+class ProductsFragment : Fragment(R.layout.fragment_products) {
 
     val productVM: ProductVM by activityViewModels {
         ProductVMFactory((requireActivity().application as DataBaseApp).productRepo)
     }
 
-    val getContent = registerForActivityResult(ActivityResultContracts.GetContent()){
+    private val getPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
+        isGranted: Boolean ->
+        if(isGranted){
+            getContent.launch("*/*")
+        }
+        else{
+            Toast.makeText(this.context,"Grant permission to import CSV",Toast.LENGTH_LONG)
+        }
+    }
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) {
         productVM.import(it, requireActivity().applicationContext)
     }
 
-    private lateinit var recyclerView : RecyclerView
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.product_menu, menu)
@@ -46,14 +56,14 @@ class ProductsFragment : Fragment(R.layout.fragment_products){
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.action_addProduct -> {
                 val intent = Intent(this.context, AddProductActivity::class.java)
                 startActivity(intent)
                 true
             }
             R.id.action_importCSV -> {
-                getContent.launch("*/*")
+                getPermission.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -72,15 +82,16 @@ class ProductsFragment : Fragment(R.layout.fragment_products){
         recyclerView.adapter = adapter
         val layoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = layoutManager
-        val itemDecorator = DividerItemDecoration(recyclerView.context,layoutManager.orientation)
+        val itemDecorator = DividerItemDecoration(recyclerView.context, layoutManager.orientation)
         recyclerView.addItemDecoration(itemDecorator)
 
-        productVM.products.observe(viewLifecycleOwner) {
-            product -> product?.let { adapter.setProducts(it) }
+        productVM.products.observe(viewLifecycleOwner) { product ->
+            product?.let { adapter.setProducts(it) }
         }
         recyclerView.setHasFixedSize(true)
 
-        val itemTouchHelperCallBack = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+        val itemTouchHelperCallBack = object :
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -91,7 +102,7 @@ class ProductsFragment : Fragment(R.layout.fragment_products){
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 productVM.delete(adapter.getNoteAt(viewHolder.bindingAdapterPosition))
-                Toast.makeText(context,"Product deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Product deleted", Toast.LENGTH_SHORT).show()
             }
         }
         ItemTouchHelper(itemTouchHelperCallBack).attachToRecyclerView(recyclerView)

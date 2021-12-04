@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#6F40C5"
+        android:background="@color/discord_dark3"
         android:orientation="vertical">
 
         <TextView
@@ -15,14 +15,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFFFFF" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#874EED"
+            android:background="@color/discord_dark4"
             android:paddingHorizontal="5dp"
             android:paddingVertical="5dp">
 

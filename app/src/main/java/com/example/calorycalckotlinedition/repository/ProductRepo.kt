@@ -1,12 +1,10 @@
 package com.example.calorycalckotlinedition.repository
 
 import androidx.annotation.WorkerThread
-import androidx.lifecycle.asLiveData
 import com.example.calorycalckotlinedition.data.Product
 import com.example.calorycalckotlinedition.data.ProductDao
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 
 class ProductRepo(private val productDao: ProductDao) {
@@ -18,6 +16,7 @@ class ProductRepo(private val productDao: ProductDao) {
         productDao.getAll(it)
     }
 
+    @ExperimentalCoroutinesApi
     val products = productFlow
 
     @WorkerThread

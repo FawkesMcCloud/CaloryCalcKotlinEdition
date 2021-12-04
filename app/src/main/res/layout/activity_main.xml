@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#673AB7"
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
@@ -13,12 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0"
-        android:background="#6200ee"
         app:tabIndicator="@drawable/vertical_progress_bar"
-        app:tabIndicatorColor="#E91E63"
         app:tabIndicatorGravity="top"
-        app:tabIndicatorHeight="6dp"
-        app:tabSelectedTextColor="#FFFFFF" />
+        app:tabIndicatorHeight="6dp"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
