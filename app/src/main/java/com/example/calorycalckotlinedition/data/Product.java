@@ -53,4 +53,28 @@ public class Product {
         Sugars = sugars;
         Proteins = proteins;
     }
+
+    public float getKCal() {
+        return KCal;
+    }
+
+    public float getFats() {
+        return Fats;
+    }
+
+    public float getCarbs() {
+        return Carbs;
+    }
+
+    public float getFibers() {
+        return Fibers;
+    }
+
+    public float getSugars() {
+        return Sugars;
+    }
+
+    public float getProteins() {
+        return Proteins;
+    }
 }

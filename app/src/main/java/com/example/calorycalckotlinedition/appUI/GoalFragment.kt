@@ -1,6 +1,7 @@
 package com.example.calorycalckotlinedition.appUI
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,14 +15,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.calorycalckotlinedition.DataBaseApp
 import com.example.calorycalckotlinedition.R
+import com.example.calorycalckotlinedition.activities.AddIntakeActivity
 import com.example.calorycalckotlinedition.data.History
 import com.example.calorycalckotlinedition.viewModels.*
-import java.text.NumberFormat
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
 class GoalFragment : Fragment(R.layout.fragment_overview) {
+
+    private var firstTime: Boolean = true
 
     //region lateinit vars
     private lateinit var addButton: Button
@@ -51,9 +53,6 @@ class GoalFragment : Fragment(R.layout.fragment_overview) {
 
     private val historyVM: HistoryVM by activityViewModels {
         HistoryVMFactory((requireActivity().application as DataBaseApp).historyRepo)
-    }
-    private val productVM: ProductVM by activityViewModels{
-        ProductVMFactory((requireActivity().application as DataBaseApp).productRepo)
     }
     private var today = Calendar.getInstance(TimeZone.getDefault()).time
 
@@ -89,83 +88,101 @@ class GoalFragment : Fragment(R.layout.fragment_overview) {
                 historyVM.recordByDate.value = todayRecord
             }
             result?.apply {
+                if(firstTime){
+                    firstTime = false
+                    updateTextFields(result)
+                }
                 updateUI(result)
+                historyVM.update(result)
             }
         }
 
-        initEditTextFields(History(today))
+        initEditTextFields()
 
         addButton.setOnClickListener{
-            val changedRecord: History = historyVM.recordByDate.value!!
-            changedRecord.deltaCarbs += 100.0f
-            changedRecord.deltaKCal += 5.0f
-            changedRecord.deltaFibers += 10.0f
-
-            historyVM.update(changedRecord)
-            historyVM.recordByDate.notifyObserver()
+            val intent = Intent(this.context,AddIntakeActivity::class.java)
+            startActivity(intent)
         }
 
     }
 
-    private fun initEditTextFields(record: History) {
+    private fun updateTextFields(recordNullable: History?){
+        var record = recordNullable
+        if(record == null)
+            record = History(today)
+
         kCalEditText.setText(record.goalKcal.toString())
         carbsEditText.setText(record.goalCarbs.toString())
         fatsEditText.setText(record.goalFats.toString())
         proteinsEditText.setText(record.goalProteins.toString())
         fibersEditText.setText(record.goalFibers.toString())
         sugarsEditText.setText(record.goalSugars.toString())
+    }
+
+    private fun initEditTextFields() {
+
 
         kCalEditText.doAfterTextChanged {
-            if(it.toString().isNotBlank())
+            if(it.toString().isNotBlank()) {
                 historyVM.recordByDate.value!!.goalKcal = it.toString().toFloat()
+            }
             else{
                 historyVM.recordByDate.value!!.goalKcal = 1.0f
-                kCalEditText.setText("1")
+                kCalEditText.setText("0")
             }
             historyVM.recordByDate.notifyObserver()
         }
         carbsEditText.doAfterTextChanged {
-            if(it.toString().isNotBlank())
+            if(it.toString().isNotBlank()){
                 historyVM.recordByDate.value!!.goalCarbs = it.toString().toFloat()
+            }
+
             else{
                 historyVM.recordByDate.value!!.goalCarbs = 1.0f
-                kCalEditText.setText("1")
+                kCalEditText.setText("0")
             }
             historyVM.recordByDate.notifyObserver()
         }
         fatsEditText.doAfterTextChanged {
             if(it.toString().isNotBlank())
-                historyVM.recordByDate.value!!.goalFats = it.toString().toFloat()
+                {
+                    historyVM.recordByDate.value!!.goalFats = it.toString().toFloat()
+                }
             else{
                 historyVM.recordByDate.value!!.goalFats = 1.0f
-                kCalEditText.setText("1")
+                fatsEditText.setText("0")
             }
             historyVM.recordByDate.notifyObserver()
         }
         proteinsEditText.doAfterTextChanged {
-            if(it.toString().isNotBlank())
+            if(it.toString().isNotBlank()){
                 historyVM.recordByDate.value!!.goalProteins = it.toString().toFloat()
+            }
+
             else{
                 historyVM.recordByDate.value!!.goalProteins = 1.0f
-                kCalEditText.setText("1")
+               proteinsEditText.setText("0")
             }
             historyVM.recordByDate.notifyObserver()
         }
        fibersEditText.doAfterTextChanged {
             if(it.toString().isNotBlank())
-                historyVM.recordByDate.value!!.goalFibers = it.toString().toFloat()
+                {
+                    historyVM.recordByDate.value!!.goalFibers = it.toString().toFloat()
+                }
             else{
                 historyVM.recordByDate.value!!.goalFibers = 1.0f
-                kCalEditText.setText("1")
+                fibersEditText.setText("0")
             }
             historyVM.recordByDate.notifyObserver()
         }
         sugarsEditText.doAfterTextChanged {
-            if(it.toString().isNotBlank())
+            if(it.toString().isNotBlank()){
                 historyVM.recordByDate.value!!.goalSugars = it.toString().toFloat()
+            }
             else{
                 historyVM.recordByDate.value!!.goalSugars = 1.0f
-                kCalEditText.setText("1")
+                sugarsEditText.setText("0")
             }
             historyVM.recordByDate.notifyObserver()
         }
@@ -232,17 +249,5 @@ class GoalFragment : Fragment(R.layout.fragment_overview) {
         //endregion
     }
 
-    private fun getFloatFrom(txt: EditText): Float {
-        return try {
-            NumberFormat.getInstance().parse(txt.text.toString()).toFloat()
-        } catch (e: ParseException) {
-            0.0f
-        }
-    }
 
-    override fun onStop() {
-        super.onStop()
-
-
-    }
 }

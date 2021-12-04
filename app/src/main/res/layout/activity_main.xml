@@ -12,9 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0"
-        app:tabIndicator="@drawable/vertical_progress_bar"
         app:tabIndicatorGravity="top"
-        app:tabIndicatorHeight="6dp"/>
+        app:tabIndicatorHeight="6dp" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"

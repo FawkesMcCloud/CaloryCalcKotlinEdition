@@ -36,4 +36,5 @@
     <string name="add_product">Add Product</string>
     <string name="import_from_csv_file">Import From CSV File</string>
     <string name="search">Search</string>
+    <string name="grams">grams</string>
 </resources>

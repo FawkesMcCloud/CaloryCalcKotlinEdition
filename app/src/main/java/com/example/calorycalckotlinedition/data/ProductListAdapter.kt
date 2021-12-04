@@ -8,14 +8,23 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calorycalckotlinedition.R
 
-class ProductListAdapter: RecyclerView.Adapter<ProductViewHolder>() {
+class ProductListAdapter(private val isSelectable: Boolean = false): RecyclerView.Adapter<ProductViewHolder>() {
     private var products: List<Product> = ArrayList()
+    private var selectedPos = RecyclerView.NO_POSITION
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        return ProductViewHolder.create(parent)
+        val holder = ProductViewHolder.create(parent)
+        if(isSelectable)
+        holder.itemView.setOnClickListener {
+            notifyItemChanged(selectedPos)
+            selectedPos = holder.layoutPosition
+            notifyItemChanged(selectedPos)
+        }
+        return holder
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+        holder.itemView.isSelected = selectedPos == position
         val product = products[position]
         holder.bind(product)
     }
@@ -32,19 +41,12 @@ class ProductListAdapter: RecyclerView.Adapter<ProductViewHolder>() {
     fun getNoteAt(pos: Int): Product {
         return products[pos]
     }
-}
 
-class ProductComparator: DiffUtil.ItemCallback<Product>() {
-    override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem === newItem
+    fun getSelectedProduct(): Product?{
+        if(selectedPos!=RecyclerView.NO_POSITION)
+            return products[selectedPos]
+        return null
     }
-
-    override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem.name == newItem.name && oldItem.brand == newItem.brand && oldItem.Proteins == newItem.Proteins &&
-                oldItem.Fats == newItem.Fats && oldItem.KCal == newItem.KCal && oldItem.Sugars == newItem.Sugars &&
-                oldItem.Fibers == newItem.Fibers
-    }
-
 }
 
 class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
