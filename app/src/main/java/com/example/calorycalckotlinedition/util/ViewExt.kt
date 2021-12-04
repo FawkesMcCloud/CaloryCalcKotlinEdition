@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.widget.SearchView
 import androidx.core.net.toFile
 import com.example.calorycalckotlinedition.data.Product
+import android.widget.Toast
 import java.io.*
 
 inline fun SearchView.onQueryTextChanged(crossinline listener: (String) -> Unit){
@@ -23,6 +24,12 @@ inline fun SearchView.onQueryTextChanged(crossinline listener: (String) -> Unit)
 
 @Suppress("BlockingMethodInNonBlockingContext")
 suspend fun getProductsFromCVS(uri: Uri, context: Context): ArrayList<Product>? {
+    if(uri==null)
+    {
+        Toast.makeText(context,"uri is null",Toast.LENGTH_SHORT).show()
+        return null
+    }
+
     if(!(uri.toString().endsWith("txt",true) || uri.toString().endsWith("csv",true)))
         return null
 
@@ -55,7 +62,7 @@ fun customSplitSpecific(s: String): ArrayList<String> {
     var notInsideComma = true
     var start = 0
     for (i in 0 until s.length - 1) {
-        if (s[i] == ',' && notInsideComma) {
+        if ((s[i] == ','||s[i] == ';') && notInsideComma) {
             words.add(s.substring(start, i))
             start = i + 1
         } else if (s[i] == '"') notInsideComma = !notInsideComma

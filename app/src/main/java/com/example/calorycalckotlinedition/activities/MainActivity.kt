@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        if(context.checkSelfPermission(activity,Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermission(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1)
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

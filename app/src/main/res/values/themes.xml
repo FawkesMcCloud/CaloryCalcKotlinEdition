@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.CaloryCalcKotlinEdition" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/discord_dark1</item>
+        <item name="colorPrimaryVariant">@color/discord_dark1</item>
+        <item name="colorOnPrimary">@color/discord_blue</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -12,9 +12,29 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+		<item name="backgroundColor">@color/discord_dark1</item>
+        <item name="android:textColor">@color/discord_blue</item>
+        <item name="background">@color/discord_dark1</item>
+
+        <item name="buttonStyle">@style/ButtonStyle</item>
+
+		<!-- Dark #1e2124 Dark1 #282b30 Dark2 #36393e Dark3 #424549 Blue #7289da -->
     </style>
-    <style name="Widget">
+
+    <style name="SelectedItem">
+        <item name="background">@color/discord_dark3</item>
     </style>
+    <style name="DefaultItem">
+        <item name="background">@color/discord_dark2</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="backgroundTint">@color/discord_blue</item>
+        <item name="android:textColor">@color/discord_dark1</item>
+    </style>
+
+	
+	<style name="Widget"></style>
     <style name="Widget.ProgressBar">
         <item name="android:indeterminateOnly">true</item>
         <item name="android:indeterminateBehavior">repeat</item>
