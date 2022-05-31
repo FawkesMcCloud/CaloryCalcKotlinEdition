@@ -1,3 +1,3 @@
 # WORK IN PROGRESS
 # Calory calculator app
-Coursework for mob. dev class
+Done as pet project for a friend
